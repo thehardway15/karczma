@@ -1,0 +1,13 @@
+.vscode
+.vs
+.DS_Store
+CppProperties.json
+main
+main.dSYM
+._.gitignore
+._.git
+x64
+*.sln
+*.filters
+*.user
+*.vcxproj
