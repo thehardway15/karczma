@@ -4,7 +4,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
-#include "../i18n.cpp";
+#include "../i18n.cpp"
 
 
 using namespace std;
