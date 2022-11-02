@@ -12,7 +12,7 @@ namespace i18n {
 		const string PROVIDE_CUSTOMERNAME = "Wprowadz nazwe uzytkownika";
 		const string WRONG_CHAR_MSG = "Niedozwolony znak";
 		const string SHORT_INPUT_MSG = "Wymagane minimum 3 znaki";
-		const string PRESS_ENTER_TO_CONTINUE = "ABY KONTYNUOWAC NACISNIJ ENTER";
-		const string PRESS_ESCAPE_TO_GO_BACK = "ABY WROCIC DO MENU NACISNIJ ESCAPE";
+		const string PRESS_ENTER_TO_CONTINUE = "Aby kontynuowac nacisnij <Enter>";
+		const string PRESS_ESCAPE_TO_GO_BACK = "Aby wrocic do menu nacisnij <Escape>";
 	}
 }

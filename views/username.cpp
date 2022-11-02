@@ -1,16 +1,15 @@
 #include <conio.h>
-#include "./views/views.h"
-#include "./config.h"
-#include "./utils.h"
+#include "../views/views.h"
+#include "../config.h"
+#include "../utils.h"
 #include <Windows.h>
 #include <string>
-#include "./i18n.cpp"
+#include "../i18n.cpp"
 
 using namespace std;
 
 void views::username(HANDLE hConsole, int key, string& customerName, Page& page) {
 
-	int color = WHITE_COLOR;
 	string customerNameRequest = i18n::pl::PROVIDE_CUSTOMERNAME + ":";
 	string wrongCharMessege = i18n::pl::WRONG_CHAR_MSG;
 	string shortInputMessege = i18n::pl::SHORT_INPUT_MSG;
@@ -36,14 +35,12 @@ void views::username(HANDLE hConsole, int key, string& customerName, Page& page)
 
 			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 4), shortInputMessege);
 
-			color = RED_COLOR;
-			SetConsoleTextAttribute(hConsole, color);
+			SetConsoleTextAttribute(hConsole, RED_COLOR);
 
 			cout << shortInputMessege;
 			Sleep(1000);
 
-			color = WHITE_COLOR;
-			SetConsoleTextAttribute(hConsole, color);
+			SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 		}
 		else
 			page = pMenu;
@@ -66,14 +63,12 @@ void views::username(HANDLE hConsole, int key, string& customerName, Page& page)
 
 			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 4), wrongCharMessege);
 
-			color = RED_COLOR;
-			SetConsoleTextAttribute(hConsole, color);
+			SetConsoleTextAttribute(hConsole, RED_COLOR);
 
 			cout << wrongCharMessege;
 			Sleep(1000);
 
-			color = WHITE_COLOR;
-			SetConsoleTextAttribute(hConsole, color);
+			SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 		}
 		break;
 	}
