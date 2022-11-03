@@ -7,12 +7,14 @@
 #include <conio.h>
 #include "./views/views.h"
 #include "./i18n.cpp"
+#include <string>
 
 using namespace std;
 
 atomic_bool stop(false);
 
 Page page = pMenu;
+string customerName = "";
 
 void loop() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -27,6 +29,7 @@ void loop() {
 		switch (page) {
 		case pMenu:  views::menu(hConsole, key, selectedMenu, page); break;
 		case pAuthor: views::author(hConsole, key, page); break;
+		case pOrder: views::username(hConsole, key, customerName, page); break;
 		}
 
 		SetConsoleTextAttribute(hConsole, WHITE_COLOR);
