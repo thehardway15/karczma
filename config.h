@@ -6,8 +6,9 @@
 #define KEY_UP 72
 #define KEY_DOWN 80
 #define KEY_EXIT 62 // F4
-#define KEY_RETURN 13
 #define KEY_ESCAPE 27
+#define KEY_ENTER 13
+
 
 #define RED_COLOR 4
 #define WHITE_COLOR 15
@@ -16,4 +17,4 @@
 #define COLS 100
 #define USERNAME_CAP 20
 
-enum Page { pMenu, pAuthor, pInfo, pOrder };
+enum Page { pMenu, pAuthor, pInfo, pOrder, pFoodDetails, pUsername };
