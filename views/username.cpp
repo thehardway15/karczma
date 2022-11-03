@@ -10,7 +10,7 @@ using namespace std;
 
 void views::username(HANDLE hConsole, int key, string& customerName, Page& page) {
 
-	string customerNameRequest = i18n::pl::PROVIDE_CUSTOMERNAME + ":";
+	string customerNameRequest = i18n::pl::PROVIDE_CUSTOMERNAME;
 	string wrongCharMessege = i18n::pl::WRONG_CHAR_MSG;
 	string shortInputMessege = i18n::pl::SHORT_INPUT_MSG;
 	string navigationMessegeNext = i18n::pl::PRESS_ENTER_TO_CONTINUE;
@@ -56,10 +56,11 @@ void views::username(HANDLE hConsole, int key, string& customerName, Page& page)
 		break;
 	}
 	default: {
+		bool isNotAlphabeticalKey = !isalpha(key) && key != KEY_DEFAULT;
 		if (isalpha(key) && customerName.size() <= USERNAME_CAP) {
 			customerName += key;
 		}
-		else if (!isalpha(key) && key != KEY_DEFAULT && customerName.size() <= USERNAME_CAP) {
+		else if (isNotAlphabeticalKey && customerName.size() <= USERNAME_CAP) {
 
 			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 4), wrongCharMessege);
 
