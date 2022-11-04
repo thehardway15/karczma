@@ -7,7 +7,7 @@
 using namespace std;
 
 void views::author(HANDLE hConsole, int key, Page& page) {
-	if (key == KEY_RETURN)
+	if (key == KEY_ESCAPE)
 		page = pMenu;
 
 	string header = i18n::pl::AUTHORS + ":";
@@ -26,7 +26,6 @@ void views::author(HANDLE hConsole, int key, Page& page) {
 	utils::gotoNextLine(namedPos, 4);
 	cout << "4. Konrad Molinski";
 
-	COORD lastPos = utils::gotoNextLine(firstPos, 6);
-	utils::gotoWriteCenter(lastPos, i18n::pl::PRESS_RETURN_TO_BACK);
-	cout << i18n::pl::PRESS_RETURN_TO_BACK;
+	utils::gotoWriteCenter({50,25}, i18n::pl::PRESS_ESC_TO_GO_BACK);
+	cout << i18n::pl::PRESS_ESC_TO_GO_BACK;
 }

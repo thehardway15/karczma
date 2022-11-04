@@ -6,10 +6,9 @@
 #include <conio.h>
 #include "../i18n.cpp"
 
-
 using namespace std;
 
-void views::menu(HANDLE hConsole, int key, int& selectedMenu, Page& page) {
+void views::menu(HANDLE hConsole, int key, int& selectedMenu, Page& page, int& selectedOption) {
 	switch (key) {
 	case KEY_UP:
 		selectedMenu--;
@@ -21,10 +20,13 @@ void views::menu(HANDLE hConsole, int key, int& selectedMenu, Page& page) {
 		if (selectedMenu > 2)
 			selectedMenu = 2;
 		break;
-	case KEY_RETURN:
+	case KEY_ENTER:
 		switch (selectedMenu) {
 		case 0: page = pInfo; break;
-		case 1: page = pOrder; break;
+		case 1:
+			selectedOption = 1;
+			page = pUsername;
+			break;
 		case 2: page = pAuthor; break;
 		}
 		break;
@@ -48,7 +50,7 @@ void views::menu(HANDLE hConsole, int key, int& selectedMenu, Page& page) {
 
 	color = selectedMenu == 2 ? RED_COLOR : WHITE_COLOR;
 	SetConsoleTextAttribute(hConsole, color);
-;
+
 	utils::gotoNextLine(firstPos, 2);
 	cout << i18n::pl::AUTHORS;
 

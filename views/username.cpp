@@ -14,7 +14,7 @@ void views::username(HANDLE hConsole, int key, string& customerName, Page& page)
 	string wrongCharMessege = i18n::pl::WRONG_CHAR_MSG;
 	string shortInputMessege = i18n::pl::SHORT_INPUT_MSG;
 	string navigationMessegeNext = i18n::pl::PRESS_ENTER_TO_CONTINUE;
-	string navigationMessegeBack = i18n::pl::PRESS_ESCAPE_TO_GO_BACK;
+	string navigationMessegeBack = i18n::pl::PRESS_RETURN_TO_BACK;
 
 	COORD firstPos = utils::gotoWriteCenter({ 0, ((ROWS / 2) - 2) }, customerNameRequest);
 	cout << customerNameRequest;
@@ -30,7 +30,7 @@ void views::username(HANDLE hConsole, int key, string& customerName, Page& page)
 	cout << navigationMessegeBack;
 
 	switch (key) {
-	case KEY_RETURN: {
+	case KEY_ENTER: {
 		if (customerName.size() < 3) {
 
 			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 4), shortInputMessege);
@@ -43,7 +43,7 @@ void views::username(HANDLE hConsole, int key, string& customerName, Page& page)
 			SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 		}
 		else
-			page = pMenu;
+			page = pOrder;
 		break;
 	}
 	case KEY_ESCAPE: {

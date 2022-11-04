@@ -5,6 +5,7 @@
 #include <atomic>
 #include <Windows.h>
 #include <conio.h>
+#include <vector>
 #include "./views/views.h"
 #include "./i18n.cpp"
 #include <string>
@@ -18,8 +19,19 @@ string customerName = "";
 
 void loop() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	int selectedMenu = 0; // 0 - Info, 1 - Zamowienie, 2 - Autorzy
+	int selectedMenu = 0; // 0 - Info, 1 - Nowe Zamowienie, 2 - Autorzy
+	int selectedOption = 1;
 	int key = NULL_CHAR;
+	OrderItem selectedOrderItem;
+
+	// TODO: Powinno byc wczytane z pliku
+	vector<OrderItem> orderItems = { OrderItem {0,2,100,"Stek", {"Cebula", "Czosnek", "Mieso wolowe", "zboza",},
+		"Swiezo uduszone mieso przywraca 20% hp oraz wyplywa korzystnie na rozciagliwosc miesni", 3},
+		OrderItem {0,0, 100,"Bulion", {"Kaczka", "Kurczak", "Warzywa",},
+		"Swiezo uduszone mieso przywraca 20% hp oraz wyplywa korzystnie na rozciagliwosc miesni", 5},
+		OrderItem {0,0,100,"Watrobka w piwku", {"Watrobka", "Pieczarki", "Piwo",}, 
+		"Swiezo uduszone mieso przywraca 20% hp oraz wyplywa korzystnie na rozciagliwosc miesni", 8}
+	};
 
 	utils::drawBox(COLS, ROWS, '#');
 
@@ -27,9 +39,11 @@ void loop() {
 		utils::clearContent();
 
 		switch (page) {
-		case pMenu:  views::menu(hConsole, key, selectedMenu, page); break;
+		case pMenu:  views::menu(hConsole, key, selectedMenu, page, selectedOption); break;
 		case pAuthor: views::author(hConsole, key, page); break;
-		case pOrder: views::username(hConsole, key, customerName, page); break;
+		case pUsername: views::username(hConsole, key, customerName, page); break;
+		case pOrder: views::order(hConsole, key, selectedOption, orderItems, page, selectedOrderItem); break;
+		case pFoodDetails: views::foodDetails(hConsole, key, page, selectedOrderItem); break;
 		}
 
 		SetConsoleTextAttribute(hConsole, WHITE_COLOR);
