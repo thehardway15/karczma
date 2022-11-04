@@ -8,7 +8,7 @@ struct OrderItem {
 	int quantity;
 	int price;
 	string name;
-	vector<string> ingridients;
+	vector<string> ingredients;
 	string description;
 	int preparationTime;
 };

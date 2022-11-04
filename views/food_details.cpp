@@ -14,12 +14,12 @@ void views::foodDetails(HANDLE hConsole, int key, Page& page, OrderItem orderIte
 	std::cout << orderItem.name;
 
 	utils::gotoxy(30, 5);
-	std::cout << i18n::pl::INGRIDIENTS;
+	std::cout << i18n::pl::INGREDIENTS;
 
 	int i = 0;
 	COORD lastPos;
 
-	for (auto& item : orderItem.ingridients) {
+	for (auto& item : orderItem.ingredients) {
 		lastPos = utils::gotoxy(30, 7 + i);
 		std::cout << item;
 		i++;

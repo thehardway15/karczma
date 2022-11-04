@@ -15,7 +15,7 @@ namespace i18n {
 		const string QUANTITY = "Ilosc";
 		const string CURRENCY = " PLN";
 		const string TOTAL = "Laczny koszt:";
-		const string INGRIDIENTS = "Skladniki:";
+		const string INGREDIENTS = "Skladniki:";
 		const string PREPARATION_TIME = "Czas przygotowania:";
 		const string DESCRIPTION = "Opis";
 		const string PROVIDE_CUSTOMERNAME = "Wprowadz nazwe uzytkownika:";
