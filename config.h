@@ -8,6 +8,7 @@
 #define KEY_EXIT 62 // F4
 #define KEY_ESCAPE 27
 #define KEY_ENTER 13
+#define KEY_SPACE 32
 
 
 #define RED_COLOR 4
@@ -16,5 +17,6 @@
 #define ROWS 28
 #define COLS 100
 #define USERNAME_CAP 20
+#define ADDRESS_CAP 30
 
-enum Page { pMenu, pAuthor, pInfo, pOrder, pFoodDetails, pUsername };
+enum Page { pMenu, pAuthor, pInfo, pOrder, pFoodDetails, pUsername, pDeliveryChoice, pDeliveryAddress, pTableChoice};

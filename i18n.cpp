@@ -23,5 +23,17 @@ namespace i18n {
 		const string SHORT_INPUT_MSG = "Wymagane minimum 3 znaki";
 		const string PRESS_ENTER_TO_CONTINUE = "Aby kontynuowac nacisnij <Enter>";
 		const string PRESS_ESC_TO_GO_BACK = "Aby wrocic do menu nacisnij <ESC>";
+		const string PROVIDE_DELIVERY_CHOICE = "Wybierz sposob dostawy: ";
+		const string TAKEAWAY_CHOICE = "Na wynos";
+		const string ON_THE_SPOT_CHOICE = "Na miejscu";
+		const string PROVIDE_ADDRESS_DATA = "Wprowadz dane adresowe oraz czas dostawy:";
+		const string ADDRESS = "Adres: ";
+		const string HOUR = "Godzina(0-24): ";
+		const string DATE = "Ilosc dni po ostatniej pelni ksiezyca(0-50): ";
+		const string SUCCESSFUL_INPUT = "Zatwierdzono!";
+		const string WRONG_INT_MSG = "Niedozwolona liczba";
+		const string PRESS_ENTER_TO_CONFIRM = "Aby potwierdzic nacisnij <Enter>";
+		const string PROVIDE_TABLE_NUMBER = "Prosze podac numer stolika:";
+		const string TABLE_NUMBER_REQUIRED = "Podanie numeru stolika jest wymagane!";
 	}
 }

@@ -15,7 +15,18 @@ using namespace std;
 atomic_bool stop(false);
 
 Page page = pMenu;
+
+struct deliveryStruct{
+	string address = "";
+	int date = 0;
+	int hour = 0;
+}deliveryData;
+
 string customerName = "";
+string addressPlaceholder = "";
+string datePlaceholder = "";
+string hourPlaceholder = "";
+int table = 0;
 
 void loop() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -44,6 +55,10 @@ void loop() {
 		case pUsername: views::username(hConsole, key, customerName, page); break;
 		case pOrder: views::order(hConsole, key, selectedOption, orderItems, page, selectedOrderItem); break;
 		case pFoodDetails: views::foodDetails(hConsole, key, page, selectedOrderItem); break;
+		case pDeliveryChoice: views::deliveryChoice(hConsole, key, page, selectedOption); break;
+		case pDeliveryAddress: views::deliveryAddress(hConsole, key, page, deliveryData, selectedOption,
+			addressPlaceholder, datePlaceholder, hourPlaceholder); break;
+		case pTableChoice: views::tableChoice(hConsole, key, page, table); break;
 		}
 
 		SetConsoleTextAttribute(hConsole, WHITE_COLOR);
