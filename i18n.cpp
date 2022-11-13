@@ -35,9 +35,14 @@ namespace i18n {
 		const string PRESS_ENTER_TO_CONFIRM = "Aby potwierdzic nacisnij <Enter>";
 		const string PROVIDE_TABLE_NUMBER = "Prosze podac numer stolika:";
 		const string TABLE_NUMBER_REQUIRED = "Podanie numeru stolika jest wymagane!";
-		const string MAKE_ORDER = "Zloz zamowienie";
+		const string MAKE_ORDER = "Nacisnij <T> aby zamowic";
 		const string SUMMARY = "Podsumowanie";
 		const string PRESS_ANY_KEY_TO_EXIT = "Nacisnij dowlony przycisk aby wyjsc";
-		const string SAVE_BILL_TO_FILE = "Zapisalismy rachunek do pliku na kompueterze";
+		const string SAVE_BILL_TO_FILE = "Zapisalismy rachunek do pliku na komputerze";
+		const string DELIVERY_TO_TABLE = "Niebawem podamy do stolu";
+		const string TABLE_NUMBER = "Stolik numer: ";
+		const string SUMMARY_DATE = "Ilosc dni po ostatniej pelni ksiezyca: ";
+		const string SUMMARY_HOUR = "Godzina: ";
+		const string SUMMARY_TOTAL_PAY = "Do zaplaty: ";
 	}
 }
