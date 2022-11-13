@@ -38,10 +38,8 @@ void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, 
 		utils::gotoxy(32, 7 + i);
 		std::cout << item.name;
 
-
 		utils::gotoxy(50, 7 + i);
 		std::cout << "|";
-
 
 		utils::gotoxy(52, 7 + i);
 		std::cout << item.price << i18n::pl::CURRENCY;
