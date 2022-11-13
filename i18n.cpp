@@ -35,5 +35,9 @@ namespace i18n {
 		const string PRESS_ENTER_TO_CONFIRM = "Aby potwierdzic nacisnij <Enter>";
 		const string PROVIDE_TABLE_NUMBER = "Prosze podac numer stolika:";
 		const string TABLE_NUMBER_REQUIRED = "Podanie numeru stolika jest wymagane!";
+		const string MAKE_ORDER = "Zloz zamowienie";
+		const string SUMMARY = "Podsumowanie";
+		const string PRESS_ANY_KEY_TO_EXIT = "Nacisnij dowlony przycisk aby wyjsc";
+		const string SAVE_BILL_TO_FILE = "Zapisalismy rachunek do pliku na kompueterze";
 	}
 }

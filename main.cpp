@@ -12,7 +12,7 @@
 
 using namespace std;
 
-atomic_bool stop(false);
+bool stop(false);
 
 Page page = pMenu;
 
@@ -59,6 +59,7 @@ void loop() {
 		case pDeliveryAddress: views::deliveryAddress(hConsole, key, page, deliveryData, selectedOption,
 			addressPlaceholder, datePlaceholder, hourPlaceholder); break;
 		case pTableChoice: views::tableChoice(hConsole, key, page, table); break;
+		case pSummary: views::summary(hConsole, key, page, customerName, orderItems, stop); break;
 		}
 
 		SetConsoleTextAttribute(hConsole, WHITE_COLOR);

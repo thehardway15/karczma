@@ -7,7 +7,7 @@
 #include <vector>
 #include "../i18n.cpp"
 
-void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderItem> orderItems, Page& page, OrderItem& selectedItem) {
+void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderItem>& orderItems, Page& page, OrderItem& selectedItem) {
 	switch (key) {
 	case KEY_UP:
 		selectedOption--;
@@ -16,15 +16,19 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 		break;
 	case KEY_DOWN:
 		selectedOption++;
-		if (selectedOption > orderItems.size())
-			selectedOption = orderItems.size();
+		if (selectedOption > orderItems.size() + 1)
+			selectedOption = orderItems.size() + 1;
 		break;
 	case KEY_ESCAPE:
 		page = pUsername;
 		break;
 	case KEY_ENTER:
-		selectedItem = orderItems[selectedOption - 1];
-		page = pFoodDetails;
+		if (selectedOption == orderItems.size() + 1) {
+			page = pSummary;
+		} else {
+			selectedItem = orderItems[selectedOption - 1];
+			page = pFoodDetails;
+		}
 		break;
 	default:
 		break;
@@ -82,6 +86,13 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 
 		i++;
 	}
+
+	int color = WHITE_COLOR;
+	color = selectedOption == orderItems.size() + 1 ? RED_COLOR : WHITE_COLOR;
+	SetConsoleTextAttribute(hConsole, color);
+
+	utils::gotoWriteCenter({ 50, 20 }, i18n::pl::MAKE_ORDER);
+	std::cout << i18n::pl::MAKE_ORDER;
 
 	SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 
