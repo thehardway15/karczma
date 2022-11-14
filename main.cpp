@@ -16,11 +16,7 @@ bool stop(false);
 
 Page page = pMenu;
 
-struct deliveryStruct{
-	string address = "";
-	int date = 0;
-	int hour = 0;
-}deliveryData;
+DeliveryStruct deliveryData{ "", 0, 0 };
 
 string customerName = "";
 string addressPlaceholder = "";
@@ -32,6 +28,8 @@ void loop() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	int selectedMenu = 0; // 0 - Info, 1 - Nowe Zamowienie, 2 - Autorzy
 	int selectedOption = 1;
+	int deliveryChoiceSelectedOption = 1;
+	int addressChoiceSelectedOption = 1;
 	int key = NULL_CHAR;
 	OrderItem selectedOrderItem;
 
@@ -55,8 +53,8 @@ void loop() {
 		case pUsername: views::username(hConsole, key, customerName, page); break;
 		case pOrder: views::order(hConsole, key, selectedOption, orderItems, page, selectedOrderItem); break;
 		case pFoodDetails: views::foodDetails(hConsole, key, page, selectedOrderItem); break;
-		case pDeliveryChoice: views::deliveryChoice(hConsole, key, page, selectedOption); break;
-		case pDeliveryAddress: views::deliveryAddress(hConsole, key, page, deliveryData, selectedOption,
+		case pDeliveryChoice: views::deliveryChoice(hConsole, key, page, deliveryChoiceSelectedOption); break;
+		case pDeliveryAddress: views::deliveryAddress(hConsole, key, page, deliveryData, addressChoiceSelectedOption,
 			addressPlaceholder, datePlaceholder, hourPlaceholder); break;
 		case pTableChoice: views::tableChoice(hConsole, key, page, table); break;
 		case pSummary: views::summary(hConsole, key, page, customerName, orderItems, stop); break;

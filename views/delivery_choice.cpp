@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void views::deliveryChoice(HANDLE hConsole, int key, Page& page, int& selectedOption) {
+void views::deliveryChoice(HANDLE hConsole, int key, Page& page, int& deliveryChoiceSelectedOption) {
 
 	int color;
 	string deliveryChoiceRequest = i18n::pl::PROVIDE_DELIVERY_CHOICE;
@@ -20,20 +20,20 @@ void views::deliveryChoice(HANDLE hConsole, int key, Page& page, int& selectedOp
 
 	switch (key) {
 	case KEY_DOWN:
-		if (selectedOption == 0) {
-			selectedOption++;
+		if (deliveryChoiceSelectedOption == 0) {
+			deliveryChoiceSelectedOption++;
 		}
 		break;
 	case KEY_UP:
-		if (selectedOption == 1) {
-			selectedOption--;
+		if (deliveryChoiceSelectedOption == 1) {
+			deliveryChoiceSelectedOption--;
 		}
 		break;
 	case KEY_ESCAPE:
 		page = pUsername;
 		break;
 	case KEY_ENTER:
-		if (selectedOption == 0) {
+		if (deliveryChoiceSelectedOption == 0) {
 			page = pTableChoice;
 		}
 		else {
@@ -49,13 +49,13 @@ void views::deliveryChoice(HANDLE hConsole, int key, Page& page, int& selectedOp
 
 	utils::gotoNextLine(firstPos, 2);
 
-	color = selectedOption == 0 ? RED_COLOR : WHITE_COLOR;
+	color = deliveryChoiceSelectedOption == 0 ? RED_COLOR : WHITE_COLOR;
 	SetConsoleTextAttribute(hConsole, color);
 	cout << onTheSpotChoice;
 
 	utils::gotoNextLine(firstPos, 4);
 
-	color = selectedOption == 1 ? RED_COLOR : WHITE_COLOR;
+	color = deliveryChoiceSelectedOption == 1 ? RED_COLOR : WHITE_COLOR;
 	SetConsoleTextAttribute(hConsole, color);
 	cout << takeawayChoice;
 
