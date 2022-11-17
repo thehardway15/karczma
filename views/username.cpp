@@ -43,7 +43,7 @@ void views::username(HANDLE hConsole, int key, string& customerName, Page& page)
 			SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 		}
 		else
-			page = pOrder;
+			page = pDeliveryChoice;
 		break;
 	}
 	case KEY_ESCAPE: {

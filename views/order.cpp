@@ -7,7 +7,7 @@
 #include <vector>
 #include "../i18n.cpp"
 
-void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderItem> orderItems, Page& page, OrderItem& selectedItem) {
+void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderItem>& orderItems, Page& page, OrderItem& selectedItem) {
 	switch (key) {
 	case KEY_UP:
 		selectedOption--;
@@ -26,6 +26,8 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 		selectedItem = orderItems[selectedOption - 1];
 		page = pFoodDetails;
 		break;
+	case KEY_T:
+		page = pSummary;
 	default:
 		break;
 	}
@@ -89,6 +91,10 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 	std::cout << i18n::pl::TOTAL;
 	utils::gotoxy(86, 24);
 	std::cout<< 0 << i18n::pl::CURRENCY;
+
+
+	utils::gotoWriteCenter({ 50, 23 }, i18n::pl::MAKE_ORDER);
+	std::cout << i18n::pl::MAKE_ORDER;
 
 	utils::gotoWriteCenter({50, 25 }, i18n::pl::PRESS_ESC_TO_GO_BACK);
 	std::cout << i18n::pl::PRESS_ESC_TO_GO_BACK;
