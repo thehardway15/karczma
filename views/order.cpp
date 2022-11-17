@@ -16,20 +16,18 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 		break;
 	case KEY_DOWN:
 		selectedOption++;
-		if (selectedOption > orderItems.size() + 1)
-			selectedOption = orderItems.size() + 1;
+		if (selectedOption > orderItems.size())
+			selectedOption = orderItems.size();
 		break;
 	case KEY_ESCAPE:
 		page = pUsername;
 		break;
 	case KEY_ENTER:
-		if (selectedOption == orderItems.size() + 1) {
-			page = pSummary;
-		} else {
-			selectedItem = orderItems[selectedOption - 1];
-			page = pFoodDetails;
-		}
+		selectedItem = orderItems[selectedOption - 1];
+		page = pFoodDetails;
 		break;
+	case KEY_T:
+		page = pSummary;
 	default:
 		break;
 	}
@@ -87,19 +85,16 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 		i++;
 	}
 
-	int color = WHITE_COLOR;
-	color = selectedOption == orderItems.size() + 1 ? RED_COLOR : WHITE_COLOR;
-	SetConsoleTextAttribute(hConsole, color);
-
-	utils::gotoWriteCenter({ 50, 20 }, i18n::pl::MAKE_ORDER);
-	std::cout << i18n::pl::MAKE_ORDER;
-
 	SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 
 	utils::gotoxy(78, 23);
 	std::cout << i18n::pl::TOTAL;
 	utils::gotoxy(86, 24);
 	std::cout<< 0 << i18n::pl::CURRENCY;
+
+
+	utils::gotoWriteCenter({ 50, 23 }, i18n::pl::MAKE_ORDER);
+	std::cout << i18n::pl::MAKE_ORDER;
 
 	utils::gotoWriteCenter({50, 25 }, i18n::pl::PRESS_ESC_TO_GO_BACK);
 	std::cout << i18n::pl::PRESS_ESC_TO_GO_BACK;

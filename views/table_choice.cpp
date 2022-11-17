@@ -31,7 +31,7 @@ void views::tableChoice(HANDLE hConsole, int key, Page& page, int& table) {
 		break;
 	case KEY_ENTER:
 		if (table > 0) {
-			page = pMenu;
+			page = pOrder;
 			break;
 		}
 		else {
