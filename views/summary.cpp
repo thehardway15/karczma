@@ -7,13 +7,7 @@
 
 using namespace std;
 
-extern struct deliveryStruct {
-	string address;
-	int date;
-	int hour;
-};
-
-void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, std::vector<OrderItem>& items, bool& shouldStop, int& table, deliveryStruct& deliveryData) {
+void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, std::vector<OrderItem>& items, bool& shouldStop, int& table, DeliveryStruct& deliveryData) {
 	SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 
 	std::vector<OrderItem> orderItems;
