@@ -16,12 +16,12 @@
     "id": 2,
     "quantity": 1,
     "price": 10,
-    "name": "Pizza",
+    "name": "Pizza Margherita",
     "ingredients": [
       "Ser",
       "Sos pomidorowy"
     ],
-    "description": "Pizza margherita",
+    "description": "\nBardzo pyszna pizza, ktora mozna zamowic o 23 \n piszac read/write system na zaliczenie projektu na studiach",
     "preparationTime": 20
   }
 ]

@@ -4,6 +4,8 @@
 #include <iostream>
 #include "models/orderItem.h"
 #include <vector>
+#include "models/restaurantDetails.h"
+
 
 using std::vector;
 
@@ -19,4 +21,5 @@ namespace utils
 	COORD gotoWriteCenter(COORD current, std::string s);
 	COORD gotoRight(COORD current, short padding = 1);
     vector<OrderItem> readOrderItems();
+    RestaurantDetails readRestaurantDetails();
 }

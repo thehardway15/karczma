@@ -21,4 +21,4 @@
 #define USERNAME_CAP 20
 #define ADDRESS_CAP 30
 
-enum Page { pMenu, pAuthor, pInfo, pOrder, pFoodDetails, pUsername, pDeliveryChoice, pDeliveryAddress, pTableChoice, pSummary};
+enum Page { pMenu, pAuthor, pOrder, pFoodDetails, pUsername, pDeliveryChoice, pDeliveryAddress, pTableChoice, pSummary, pRestaurantDetails};

@@ -6,6 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 include_directories(views)
 
+configure_file(${CMAKE_SOURCE_DIR}/static/restaurant_menu.json ${CMAKE_CURRENT_BINARY_DIR}/restaurant_menu.json COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/static/restaurant_details.json ${CMAKE_CURRENT_BINARY_DIR}/restaurant_details.json COPYONLY)
+
+
 add_executable(Karczma
         models/orderItem.h
         views/author.cpp
@@ -23,4 +27,5 @@ add_executable(Karczma
         i18n.cpp
         main.cpp
         utils.cpp
-        utils.h)
+        utils.h models/restaurantDetails.h)
+
