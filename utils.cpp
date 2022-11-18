@@ -84,3 +84,9 @@ COORD utils::gotoWriteCenter(COORD current, std::string s) {
 COORD utils::gotoRight(COORD current, short padding) {
     return utils::gotoxy(current.X + padding, current.Y);
 }
+
+vector<OrderItem> utils::readOrderItems(){
+    vector<OrderItem> orderItems;
+
+    return orderItems;
+}

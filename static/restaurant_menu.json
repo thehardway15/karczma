@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "quantity": 1,
+    "price": 20,
+    "name": "Pizza",
+    "ingredients": [
+      "Salami",
+      "Ser",
+      "Sos pomidorowy"
+    ],
+    "description": "Pizza pepperoni",
+    "preparationTime": 30
+  },
+  {
+    "id": 2,
+    "quantity": 1,
+    "price": 10,
+    "name": "Pizza",
+    "ingredients": [
+      "Ser",
+      "Sos pomidorowy"
+    ],
+    "description": "Pizza margherita",
+    "preparationTime": 20
+  }
+]
