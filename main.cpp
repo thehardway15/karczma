@@ -34,11 +34,11 @@ void loop() {
 	OrderItem selectedOrderItem;
 
 	// TODO: Powinno byc wczytane z pliku
-	vector<OrderItem> orderItems = { OrderItem {0,2,100,"Stek", {"Cebula", "Czosnek", "Mieso wolowe", "zboza",},
+	vector<OrderItem> orderItems = { OrderItem {0,0,5,100,"Stek", {"Cebula", "Czosnek", "Mieso wolowe", "zboza",},
 		"Swiezo uduszone mieso przywraca 20% hp oraz wyplywa korzystnie na rozciagliwosc miesni", 3},
-		OrderItem {0,0, 100,"Bulion", {"Kaczka", "Kurczak", "Warzywa",},
+		OrderItem {0,0,10, 100,"Bulion", {"Kaczka", "Kurczak", "Warzywa",},
 		"Swiezo uduszone mieso przywraca 20% hp oraz wyplywa korzystnie na rozciagliwosc miesni", 5},
-		OrderItem {0,0,100,"Watrobka w piwku", {"Watrobka", "Pieczarki", "Piwo",}, 
+		OrderItem {0,0,3,100,"Watrobka w piwku", {"Watrobka", "Pieczarki", "Piwo",}, 
 		"Swiezo uduszone mieso przywraca 20% hp oraz wyplywa korzystnie na rozciagliwosc miesni", 8}
 	};
 

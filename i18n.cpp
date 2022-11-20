@@ -44,5 +44,6 @@ namespace i18n {
 		const string SUMMARY_DATE = "Ilosc dni po ostatniej pelni ksiezyca: ";
 		const string SUMMARY_HOUR = "Godzina: ";
 		const string SUMMARY_TOTAL_PAY = "Do zaplaty: ";
+		const string MENU_QUANTITY_INFO = "Uzyj +/- aby wybrac ilosc posilkow.";
 	}
 }
