@@ -103,14 +103,13 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 	utils::gotoxy(5, 23);
 	std::cout << i18n::pl::MENU_QUANTITY_INFO;
 
+	utils::gotoWriteCenter({ 5, 24 }, i18n::pl::MAKE_ORDER);
+	std::cout << i18n::pl::MAKE_ORDER;
+
 	utils::gotoxy(78, 23);
 	std::cout << i18n::pl::TOTAL;
 	utils::gotoxy(86, 24);
-	std::cout<< price << i18n::pl::CURRENCY;
-
-
-	utils::gotoWriteCenter({ 50, 23 }, i18n::pl::MAKE_ORDER);
-	std::cout << i18n::pl::MAKE_ORDER;
+	std::cout << price << i18n::pl::CURRENCY;
 
 	utils::gotoWriteCenter({50, 25 }, i18n::pl::PRESS_ESC_TO_GO_BACK);
 	std::cout << i18n::pl::PRESS_ESC_TO_GO_BACK;
