@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void views::tableChoice(HANDLE hConsole, int key, Page& page, int& table) {
+void views::tableChoice(HANDLE hConsole, int key, Page& page, int& table, string& tablePlaceholder) {
 
 	string navigationMessegeNext = i18n::pl::PRESS_ENTER_TO_CONTINUE;
 	string navigationMessegeBack = i18n::pl::PRESS_RETURN_TO_BACK;
@@ -22,7 +22,8 @@ void views::tableChoice(HANDLE hConsole, int key, Page& page, int& table) {
 	SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 	cout << tableChoiceRequest << endl;
 
-	utils::gotoNextLine(firstPos, 2);
+	utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 2), tablePlaceholder);
+	cout << tablePlaceholder;
 
 
 	switch (key) {
@@ -30,7 +31,12 @@ void views::tableChoice(HANDLE hConsole, int key, Page& page, int& table) {
 		page = pMenu;
 		break;
 	case KEY_ENTER:
-		if (table > 0) {
+		if (tablePlaceholder.length() > 0) {
+			table = stoi(tablePlaceholder);
+			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 4), successfulInput);
+			SetConsoleTextAttribute(hConsole, RED_COLOR);
+			cout << successfulInput;
+			Sleep(1000);
 			page = pOrder;
 			break;
 		}
@@ -42,11 +48,7 @@ void views::tableChoice(HANDLE hConsole, int key, Page& page, int& table) {
 		}
 	default:
 		if (isdigit(key) && key > 0) {
-			table = key;
-			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 4), successfulInput);
-			SetConsoleTextAttribute(hConsole, RED_COLOR);
-			cout << successfulInput;
-			Sleep(1000);
+			tablePlaceholder += key;
 		}
 		else if (!isdigit(key) && key != KEY_DEFAULT) {
 			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 4), wrongCharMsg);

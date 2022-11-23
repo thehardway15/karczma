@@ -22,6 +22,7 @@ string customerName = "";
 string addressPlaceholder = "";
 string datePlaceholder = "";
 string hourPlaceholder = "";
+string tablePlaceholder = "";
 int table = 0;
 
 void loop() {
@@ -56,7 +57,7 @@ void loop() {
 		case pDeliveryChoice: views::deliveryChoice(hConsole, key, page, deliveryChoiceSelectedOption); break;
 		case pDeliveryAddress: views::deliveryAddress(hConsole, key, page, deliveryData, addressChoiceSelectedOption,
 			addressPlaceholder, datePlaceholder, hourPlaceholder); break;
-		case pTableChoice: views::tableChoice(hConsole, key, page, table); break;
+		case pTableChoice: views::tableChoice(hConsole, key, page, table, tablePlaceholder); break;
 		case pSummary: views::summary(hConsole, key, page, customerName, orderItems, stop, table, deliveryData); break;
 		}
 
