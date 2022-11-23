@@ -8,6 +8,8 @@
 #include "../i18n.cpp"
 
 void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderItem>& orderItems, Page& page, OrderItem& selectedItem) {
+	int price = 0;
+	
 	switch (key) {
 	case KEY_UP:
 		selectedOption--;
@@ -28,6 +30,15 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 		break;
 	case KEY_T:
 		page = pSummary;
+	case KEY_PLUS:
+		if(orderItems[selectedOption - 1].quantity < orderItems[selectedOption - 1].maxQuantity)
+			orderItems[selectedOption - 1].quantity++;
+		break;
+	case KEY_MINUS:
+		orderItems[selectedOption - 1].quantity--;
+		if (orderItems[selectedOption - 1].quantity < 0)
+			orderItems[selectedOption - 1].quantity = 0;
+		break;
 	default:
 		break;
 	}
@@ -83,18 +94,22 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 		std::cout << item.quantity;
 
 		i++;
+
+		price = price + (item.quantity * item.price);
 	}
 
 	SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 
+	utils::gotoxy(5, 23);
+	std::cout << i18n::pl::MENU_QUANTITY_INFO;
+
+	utils::gotoWriteCenter({ 5, 24 }, i18n::pl::MAKE_ORDER);
+	std::cout << i18n::pl::MAKE_ORDER;
+
 	utils::gotoxy(78, 23);
 	std::cout << i18n::pl::TOTAL;
 	utils::gotoxy(86, 24);
-	std::cout<< 0 << i18n::pl::CURRENCY;
-
-
-	utils::gotoWriteCenter({ 50, 23 }, i18n::pl::MAKE_ORDER);
-	std::cout << i18n::pl::MAKE_ORDER;
+	std::cout << price << i18n::pl::CURRENCY;
 
 	utils::gotoWriteCenter({50, 25 }, i18n::pl::PRESS_ESC_TO_GO_BACK);
 	std::cout << i18n::pl::PRESS_ESC_TO_GO_BACK;

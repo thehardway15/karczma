@@ -33,7 +33,6 @@ void loop() {
 	int key = NULL_CHAR;
 	OrderItem selectedOrderItem;
 
-
 	vector<OrderItem> orderItems = utils::readOrderItems();
     RestaurantDetails details = utils::readRestaurantDetails();
 

@@ -10,6 +10,8 @@
 #define KEY_ENTER 13
 #define KEY_SPACE 32
 #define KEY_T 116
+#define KEY_PLUS 43
+#define KEY_MINUS 45
 
 
 #define RED_COLOR 4
