@@ -23,6 +23,8 @@ void views::restaurantDetails(HANDLE hConsole, int key, Page &page, const Restau
 	utils::gotoNextLine(firstPos, 3);
 	cout << details.creationDate;
 
+    utils::gotoNextLine(firstPos, 4);
+    cout << details.description;
 
 	utils::gotoWriteCenter({50,25}, i18n::pl::PRESS_ESC_TO_GO_BACK);
 	cout << i18n::pl::PRESS_ESC_TO_GO_BACK;

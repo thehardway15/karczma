@@ -6,7 +6,6 @@
 #include <vector>
 #include "models/restaurantDetails.h"
 
-
 using std::vector;
 
 namespace utils

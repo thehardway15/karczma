@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "quantity": 1,
+    "quantity": 0,
     "price": 20,
     "name": "Pizza",
     "ingredients": [
@@ -14,7 +14,7 @@
   },
   {
     "id": 2,
-    "quantity": 1,
+    "quantity": 0,
     "price": 10,
     "name": "Pizza Margherita",
     "ingredients": [

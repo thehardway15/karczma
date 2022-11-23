@@ -114,7 +114,7 @@ RestaurantDetails utils::readRestaurantDetails() {
     ifstream f("restaurant_details.json");
     json data = json::parse(f);
 
-    return RestaurantDetails {data["name"], data["location"], data["creationDate"]};
+    return RestaurantDetails {data["name"], data["location"], data["creationDate"], data["description"]};
 }
 
 
