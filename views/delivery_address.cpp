@@ -134,7 +134,7 @@ void views::deliveryAddress(HANDLE hConsole, int key, Page& page, DeliveryStruct
 			hourPlaceholder += key;
 		}
 		else if (isDeliveryDataCompleted) {
-			page = pOrder;
+			page = pMenu;
 		}
 		break;
 	}
