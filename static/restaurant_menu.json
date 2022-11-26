@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "quantity": 0,
+    "maxQuantity": 10,
+    "price": 20,
+    "name": "Pizza",
+    "ingredients": [
+      "Salami",
+      "Ser",
+      "Sos pomidorowy"
+    ],
+    "description": "Pizza pepperoni",
+    "preparationTime": 30
+  },
+  {
+    "id": 2,
+    "quantity": 0,
+    "maxQuantity": 10,
+    "price": 10,
+    "name": "Pizza Margherita",
+    "ingredients": [
+      "Ser",
+      "Sos pomidorowy"
+    ],
+    "description": "\nBardzo pyszna pizza, ktora mozna zamowic o 23 \n piszac read/write system na zaliczenie projektu na studiach",
+    "preparationTime": 20
+  }
+]

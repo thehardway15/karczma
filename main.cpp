@@ -33,16 +33,10 @@ void loop() {
 	int key = NULL_CHAR;
 	OrderItem selectedOrderItem;
 
-	// TODO: Powinno byc wczytane z pliku
-	vector<OrderItem> orderItems = { OrderItem {0,0,5,100,"Stek", {"Cebula", "Czosnek", "Mieso wolowe", "zboza",},
-		"Swiezo uduszone mieso przywraca 20% hp oraz wyplywa korzystnie na rozciagliwosc miesni", 3},
-		OrderItem {0,0,10, 100,"Bulion", {"Kaczka", "Kurczak", "Warzywa",},
-		"Swiezo uduszone mieso przywraca 20% hp oraz wyplywa korzystnie na rozciagliwosc miesni", 5},
-		OrderItem {0,0,3,100,"Watrobka w piwku", {"Watrobka", "Pieczarki", "Piwo",}, 
-		"Swiezo uduszone mieso przywraca 20% hp oraz wyplywa korzystnie na rozciagliwosc miesni", 8}
-	};
+	vector<OrderItem> orderItems = utils::readOrderItems();
+    RestaurantDetails details = utils::readRestaurantDetails();
 
-	utils::drawBox(COLS, ROWS, '#');
+    utils::drawBox(COLS, ROWS, '#');
 
 	while(!stop) {
 		utils::clearContent();
@@ -58,6 +52,7 @@ void loop() {
 			addressPlaceholder, datePlaceholder, hourPlaceholder); break;
 		case pTableChoice: views::tableChoice(hConsole, key, page, table); break;
 		case pSummary: views::summary(hConsole, key, page, customerName, orderItems, stop, table, deliveryData); break;
+        case pRestaurantDetails: views::restaurantDetails(hConsole, key, page, details); break;
 		}
 
 		SetConsoleTextAttribute(hConsole, WHITE_COLOR);

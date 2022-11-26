@@ -4,6 +4,10 @@
 #include <Windows.h>
 #include <string.h>
 #include <conio.h>
+#include <fstream>
+#include "include/json.hpp"
+
+using json = nlohmann::json;
 
 using namespace std;
 
@@ -84,3 +88,33 @@ COORD utils::gotoWriteCenter(COORD current, std::string s) {
 COORD utils::gotoRight(COORD current, short padding) {
     return utils::gotoxy(current.X + padding, current.Y);
 }
+
+
+//TODO Fix description centering in food details view
+vector<OrderItem> utils::readOrderItems(){
+    vector<OrderItem> orderItems;
+
+    ifstream f("restaurant_menu.json");
+    json data = json::parse(f);
+
+    for (auto & menuItem : data) {
+        vector<string> ingredients;
+        for(auto & ingredient : menuItem["ingredients"]){
+            ingredients.push_back(ingredient);
+        }
+        OrderItem orderItem = OrderItem {menuItem["id"],menuItem["quantity"],menuItem["maxQuantity"], menuItem["price"],menuItem["name"],
+                                         ingredients,menuItem["description"], menuItem["preparationTime"]};
+        orderItems.push_back(orderItem);
+    }
+
+    return orderItems;
+}
+
+RestaurantDetails utils::readRestaurantDetails() {
+    ifstream f("restaurant_details.json");
+    json data = json::parse(f);
+
+    return RestaurantDetails {data["name"], data["location"], data["creationDate"], data["description"]};
+}
+
+
