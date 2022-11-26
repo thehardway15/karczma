@@ -32,6 +32,9 @@ namespace i18n {
 		const string DATE = "Ilosc dni po ostatniej pelni ksiezyca(0-50): ";
 		const string SUCCESSFUL_INPUT = "Zatwierdzono!";
 		const string WRONG_INT_MSG = "Niedozwolona liczba";
+		const string EMPTY_ADDRESS = "Prosze podac adres";
+		const string WRONG_DATE = "Prosze podac poprawna date dostawy";
+		const string WRONG_HOUR = "Prosze podac poprawna godzine dostawy";
 		const string PRESS_ENTER_TO_CONFIRM = "Aby potwierdzic nacisnij <Enter>";
 		const string PROVIDE_TABLE_NUMBER = "Prosze podac numer stolika:";
 		const string TABLE_NUMBER_REQUIRED = "Podanie numeru stolika jest wymagane!";

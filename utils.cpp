@@ -102,8 +102,8 @@ vector<OrderItem> utils::readOrderItems(){
         for(auto & ingredient : menuItem["ingredients"]){
             ingredients.push_back(ingredient);
         }
-        OrderItem orderItem = OrderItem {menuItem["id"],menuItem["quantity"],menuItem["maxQuantity"], menuItem["price"],menuItem["name"],
-                                         ingredients,menuItem["description"], menuItem["preparationTime"]};
+        OrderItem orderItem = OrderItem {menuItem["id"], 0, menuItem["maxQuantity"], menuItem["price"], menuItem["name"],
+                                         ingredients, menuItem["description"], menuItem["preparationTime"]};
         orderItems.push_back(orderItem);
     }
 

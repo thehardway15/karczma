@@ -12,7 +12,6 @@ using namespace std;
 void views::tableChoice(HANDLE hConsole, int key, Page& page, int& table, string& tablePlaceholder) {
 
 	string navigationMessegeNext = i18n::pl::PRESS_ENTER_TO_CONTINUE;
-	string navigationMessegeBack = i18n::pl::PRESS_RETURN_TO_BACK;
 	string tableChoiceRequest = i18n::pl::PROVIDE_TABLE_NUMBER;
 	string successfulInput = i18n::pl::SUCCESSFUL_INPUT;
 	string wrongCharMsg = i18n::pl::WRONG_CHAR_MSG;
@@ -24,6 +23,9 @@ void views::tableChoice(HANDLE hConsole, int key, Page& page, int& table, string
 
 	utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 2), tablePlaceholder);
 	cout << tablePlaceholder;
+
+	utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 6), navigationMessegeNext);
+	cout << navigationMessegeNext;
 
 	switch (key) {
 	case KEY_ESCAPE:

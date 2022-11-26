@@ -1,7 +1,6 @@
 [
   {
     "id": 1,
-    "quantity": 0,
     "maxQuantity": 10,
     "price": 20,
     "name": "Pizza",
@@ -15,7 +14,6 @@
   },
   {
     "id": 2,
-    "quantity": 0,
     "maxQuantity": 10,
     "price": 10,
     "name": "Pizza Margherita",

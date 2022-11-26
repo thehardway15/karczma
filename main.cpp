@@ -29,8 +29,8 @@ void loop() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	int selectedMenu = 0; // 0 - Info, 1 - Nowe Zamowienie, 2 - Autorzy
 	int selectedOption = 1;
-	int deliveryChoiceSelectedOption = 1;
-	int addressChoiceSelectedOption = 1;
+	int deliveryChoiceSelectedOption = 0;
+	int addressChoiceSelectedOption = 0;
 	int key = NULL_CHAR;
 	OrderItem selectedOrderItem;
 
