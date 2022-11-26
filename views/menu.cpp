@@ -22,7 +22,7 @@ void views::menu(HANDLE hConsole, int key, int& selectedMenu, Page& page, int& s
 		break;
 	case KEY_ENTER:
 		switch (selectedMenu) {
-		case 0: page = pInfo; break;
+		case 0: page = pRestaurantDetails; break;
 		case 1:
 			selectedOption = 1;
 			page = pUsername;

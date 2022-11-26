@@ -7,19 +7,15 @@
 
 using namespace std;
 
-extern struct deliveryStruct {
-	string address;
-	int date;
-	int hour;
-};
-
 void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, std::vector<OrderItem>& items, bool& shouldStop, int& table, DeliveryStruct& deliveryData) {
 	SetConsoleTextAttribute(hConsole, WHITE_COLOR);
+	int price = 0;
 
 	std::vector<OrderItem> orderItems;
 	for (const auto& item : items) {
 		if (item.quantity > 0) {
 			orderItems.push_back(item);
+			price = price + (item.quantity * item.price);
 		}
 	}
 
@@ -95,9 +91,7 @@ void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, 
 
 	SetConsoleTextAttribute(hConsole, GREEN_COLOR);
 
-	//TODO: Damian, jak ogarniesz przeliczanie kosztu zamowienia to
-	// prosi³bym ¿ebyœ to te¿ tutaj przerzucil w postaci zmiennej lub skopiowanego kodu. Dziêki :D 
-	string total = i18n::pl::SUMMARY_TOTAL_PAY + std::to_string(100) + " " + i18n::pl::CURRENCY;
+	string total = i18n::pl::SUMMARY_TOTAL_PAY + std::to_string(price) + " " + i18n::pl::CURRENCY;
 
 	utils::gotoWriteCenter({ 0, lastPostionY}, total);
 	std::cout << total;

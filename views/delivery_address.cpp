@@ -111,20 +111,20 @@ void views::deliveryAddress(HANDLE hConsole, int key, Page& page, DeliveryStruct
 		}
 		break;
 	case BACK_SPACE:
-		if (addressChoiceSelectedOption == 0 && size(addressPlaceholder) > 0) {
+		if (addressChoiceSelectedOption == 0 &&  addressPlaceholder.size() > 0) {
 			addressPlaceholder.pop_back();
 		}
-		else if (addressChoiceSelectedOption == 1 && size(datePlaceholder) > 0) {
+		else if (addressChoiceSelectedOption == 1 && datePlaceholder.size() > 0) {
 			datePlaceholder.pop_back();
 		}
-		else if (addressChoiceSelectedOption == 2 && size(hourPlaceholder) > 0) {
+		else if (addressChoiceSelectedOption == 2 && hourPlaceholder.size() > 0) {
 			hourPlaceholder.pop_back();
 		}
 		break;
 	default:
 		bool isDeliveryDataCompleted = deliveryData.address != "" && deliveryData.date > 0 && deliveryData.hour > 0;
 		bool isValidAddressChar = isalnum(key) || key == KEY_SPACE;
-		if (addressChoiceSelectedOption == 0 && isValidAddressChar && size(addressPlaceholder) <= ADDRESS_CAP) {
+		if (addressChoiceSelectedOption == 0 && isValidAddressChar && addressPlaceholder.size() <= ADDRESS_CAP) {
 			addressPlaceholder += key;
 		}
 		else if (addressChoiceSelectedOption == 1 && isdigit(key)) {
