@@ -75,41 +75,29 @@ void views::deliveryAddress(HANDLE hConsole, int key, Page& page, DeliveryStruct
 	case KEY_ESCAPE:
 		page = pUsername;
 		break;
-	case KEY_ENTER:
-		if (addressChoiceSelectedOption == 0) {
+	case KEY_ENTER: {
+		string errorMessage = "";
+		if (addressPlaceholder.size() == 0) {
+			errorMessage = i18n::pl::EMPTY_ADDRESS;
+		} else if (datePlaceholder.size() == 0 || stoi(datePlaceholder) > 50) {
+			errorMessage = i18n::pl::WRONG_DATE;
+		} else if (hourPlaceholder.size() == 0 || stoi(hourPlaceholder) > 24) {
+			errorMessage = i18n::pl::WRONG_HOUR;
+		}
+
+		if (errorMessage.size() > 0) {
+			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 8), errorMessage);
+			SetConsoleTextAttribute(hConsole, RED_COLOR);
+			cout << errorMessage;
+			Sleep(1000);
+		} else {
 			deliveryData.address = addressPlaceholder;
-			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 8), successfulInput);
-			SetConsoleTextAttribute(hConsole, RED_COLOR);
-			cout << successfulInput;
-			Sleep(1000);
-		}
-		else if (addressChoiceSelectedOption == 1 && stoi(datePlaceholder) <= 50) {
 			deliveryData.date = stoi(datePlaceholder);
-			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 8), successfulInput);
-			SetConsoleTextAttribute(hConsole, RED_COLOR);
-			cout << successfulInput;
-			Sleep(1000);
-		}
-		else if (addressChoiceSelectedOption == 1 && stoi(datePlaceholder) > 50){
-			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 8), wrongIntMsg);
-			SetConsoleTextAttribute(hConsole, RED_COLOR);
-			cout << wrongIntMsg;
-			Sleep(1000);
-		}
-		else if (addressChoiceSelectedOption == 2 && stoi(hourPlaceholder) <= 24) {
 			deliveryData.hour = stoi(hourPlaceholder);
-			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 8), successfulInput);
-			SetConsoleTextAttribute(hConsole, RED_COLOR);
-			cout << successfulInput;
-			Sleep(1000);
-		}
-		else if (addressChoiceSelectedOption == 2 && stoi(hourPlaceholder) > 24) {
-			utils::gotoWriteCenter(utils::gotoNextLine(firstPos, 8), wrongIntMsg);
-			SetConsoleTextAttribute(hConsole, RED_COLOR);
-			cout << wrongIntMsg;
-			Sleep(1000);
+			page = pOrder;
 		}
 		break;
+	}
 	case BACK_SPACE:
 		if (addressChoiceSelectedOption == 0 &&  addressPlaceholder.size() > 0) {
 			addressPlaceholder.pop_back();
@@ -122,7 +110,6 @@ void views::deliveryAddress(HANDLE hConsole, int key, Page& page, DeliveryStruct
 		}
 		break;
 	default:
-		bool isDeliveryDataCompleted = deliveryData.address != "" && deliveryData.date > 0 && deliveryData.hour > 0;
 		bool isValidAddressChar = isalnum(key) || key == KEY_SPACE;
 		if (addressChoiceSelectedOption == 0 && isValidAddressChar && addressPlaceholder.size() <= ADDRESS_CAP) {
 			addressPlaceholder += key;
@@ -132,9 +119,6 @@ void views::deliveryAddress(HANDLE hConsole, int key, Page& page, DeliveryStruct
 		}
 		else if (addressChoiceSelectedOption == 2 && isdigit(key)) {
 			hourPlaceholder += key;
-		}
-		else if (isDeliveryDataCompleted) {
-			page = pOrder;
 		}
 		break;
 	}

@@ -9,6 +9,7 @@
 
 void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderItem>& orderItems, Page& page, OrderItem& selectedItem) {
 	int price = 0;
+	bool ordered = false;
 	
 	switch (key) {
 	case KEY_UP:
@@ -30,6 +31,7 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 		break;
 	case KEY_T:
 		page = pSummary;
+        break;
 	case KEY_PLUS:
 		if(orderItems[selectedOption - 1].quantity < orderItems[selectedOption - 1].maxQuantity)
 			orderItems[selectedOption - 1].quantity++;
@@ -98,13 +100,21 @@ void views::order(HANDLE hConsole, int key, int& selectedOption, vector<OrderIte
 		price = price + (item.quantity * item.price);
 	}
 
+    if (price > 0) {
+        ordered = true;
+    } else {
+        ordered = false;
+    }
+
 	SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 
 	utils::gotoxy(5, 23);
 	std::cout << i18n::pl::MENU_QUANTITY_INFO;
 
-	utils::gotoWriteCenter({ 5, 24 }, i18n::pl::MAKE_ORDER);
-	std::cout << i18n::pl::MAKE_ORDER;
+    if (ordered) {
+        utils::gotoWriteCenter({5, 24}, i18n::pl::MAKE_ORDER);
+        std::cout << i18n::pl::MAKE_ORDER;
+    }
 
 	utils::gotoxy(78, 23);
 	std::cout << i18n::pl::TOTAL;
