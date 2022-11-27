@@ -2,7 +2,7 @@
 
 ## Ogólne
 
-Aplikacja konsolowa stworzona jest pod system Windows. Minimalna wymagana wersja kompilatora co C++14.
+Aplikacja konsolowa stworzona jest pod system Windows. Minimalna wymagana wersja kompilatora to C++14.
 
 ## Struktura
 
@@ -79,3 +79,35 @@ Podstawowe parametry przekazywane do widoku:
 - `hConsole` potrzebne do manipulowania kursoerm na konsli (ustawianie pozycji, zmiana koloru)
 - `key` kod ASCII wciśniętego klawisza przez użytkownika
 - `page` referencja do zmiennej przechowującej aktualnie wyświetlany widok, potrzebne do przechodzenia między widokami. 
+
+### Dostępne widoki
+
+`pMenu` - wyświetla główne menu aplikacji
+
+`pAuthor` - wyświetla dane o autorach
+
+`pUsername` - widok pozwalający podać imię zamawiającego
+
+`pOrder` - wyśweitla dostepne potrawy do zamówienia, pozwala wybrać ilość oraz wyświetla cenę końcową
+
+`pFoodDetails` - wyświetla szczegóły na temat potrawy, opis oraz skład
+
+`pDeliveryChoice` - wyświetla wybór sposobu dostawy
+
+`pDeliveryAddress` - widok pozwalający podać adres dostawy zamówienia
+
+`pTableChoice` - widok pozwalający podać numer stolika do którego podać zamówienie
+
+`pSummary` - podsumowanie zamówienia, zapisuje również zamówienie do pliku
+
+`pRestaurantDetails` - wyświetla dane na temat restauracji
+
+## Modyfikowanie zawartości aplikacji
+
+### Dane restauracji
+
+Dane restauracji znajdują się w pliku **static/restaurant_details.json** w celu aktualizacji danych należy zmodyfikować w/w plik. Dane zostaną załadowane podczas uruchomienia aplikacji.
+
+### Dostępne potrawy
+
+Lista oraz opis dostępnych potraw znajduje się w pliku **static/restaurant_menu.json** Edycja tego pliku pozwala dodawać/usuwać potrawy. Tam również modyfikujemy skład oraz opis potraw, również maksymalna ilość danej potrawy dostępnej do zamówienia. Dane zostaną załadowane podczas uruchomienia aplikacji.
