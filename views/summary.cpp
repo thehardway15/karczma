@@ -4,12 +4,18 @@
 #include <Windows.h>
 #include "../i18n.cpp"
 #include <algorithm>
+#include <iostream>
+#include <fstream>
+
 
 using namespace std;
 
 void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, std::vector<OrderItem>& items, bool& shouldStop, int& table, DeliveryStruct& deliveryData) {
 	SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 	int price = 0;
+    bool fileCreated = false;
+
+    ofstream outfile("order.txt");
 
 	std::vector<OrderItem> orderItems;
 	for (const auto& item : items) {
@@ -52,6 +58,21 @@ void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, 
 		i++;
 	}
 
+
+    for (auto& item : orderItems) {
+        outfile << "|";
+        outfile << item.name;
+        outfile << "|";
+        outfile << item.price << i18n::pl::CURRENCY;
+        outfile << "|";
+        outfile << item.quantity << "x" << std::endl;
+        outfile << std::endl;
+
+    }
+
+
+
+
 	short lastPostionY = 7 + orderItems.size();
 
 	for (int i = 30; i <= 70; i++) {
@@ -61,6 +82,8 @@ void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, 
 
 	lastPostionY += 3;
 
+    outfile << "-----------------------" <<std::endl;
+
 	if (table > 0) {
 		utils::gotoWriteCenter({ 0, lastPostionY }, i18n::pl::DELIVERY_TO_TABLE);
 		cout << i18n::pl::DELIVERY_TO_TABLE;
@@ -68,11 +91,17 @@ void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, 
 		string tableText = i18n::pl::TABLE_NUMBER + std::to_string(table);
 		utils::gotoWriteCenter({ 0, lastPostionY}, tableText);
 		cout << tableText;
-	}
+
+        outfile << tableText <<std::endl;
+
+
+    }
 	else {
 		string address = i18n::pl::ADDRESS + deliveryData.address;
 		utils::gotoWriteCenter({ 0, lastPostionY }, address);
 		std::cout << address;
+
+        outfile << address <<std::endl;
 
 		lastPostionY += 1;
 
@@ -80,11 +109,15 @@ void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, 
 		utils::gotoWriteCenter({ 0, lastPostionY }, date);
 		std::cout << date;
 
+        outfile << date << std::endl;
+
 		lastPostionY += 1;
 
 		string hour = i18n::pl::SUMMARY_HOUR + std::to_string(deliveryData.hour);
 		utils::gotoWriteCenter({ 0, lastPostionY }, hour);
 		std::cout << hour;
+
+        outfile << hour<< std::endl;
 	}
 
 	lastPostionY += 3;
@@ -96,13 +129,17 @@ void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, 
 	utils::gotoWriteCenter({ 0, lastPostionY}, total);
 	std::cout << total;
 
-	SetConsoleTextAttribute(hConsole, WHITE_COLOR);
+    outfile << total<< std::endl;
+
+    SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 
 	utils::gotoWriteCenter({ 0, 22 }, i18n::pl::SAVE_BILL_TO_FILE);
 	cout << i18n::pl::SAVE_BILL_TO_FILE;
 
 	utils::gotoWriteCenter({ 0, 24}, i18n::pl::PRESS_ANY_KEY_TO_EXIT);
 	cout << i18n::pl::PRESS_ANY_KEY_TO_EXIT;
+
+    outfile.close();
 
 	if (key >= 0) {
 		shouldStop = true;
