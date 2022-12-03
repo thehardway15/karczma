@@ -48,6 +48,6 @@ namespace i18n {
 		const string SUMMARY_HOUR = "Godzina: ";
 		const string SUMMARY_TOTAL_PAY = "Do zaplaty: ";
 		const string MENU_QUANTITY_INFO = "Uzyj +/- aby wybrac ilosc posilkow.";
-        const string RESTAURANT_DETAILS = "Informacje: ";
+        const string RESTAURANT_DETAILS = "Informacje";
 	}
 }
