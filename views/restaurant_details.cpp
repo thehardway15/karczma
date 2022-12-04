@@ -11,20 +11,29 @@ void views::restaurantDetails(HANDLE hConsole, int key, Page &page, const Restau
 		page = pMenu;
 
 
+    short lastPositionY =  (ROWS / 2);
 	string header = i18n::pl::RESTAURANT_DETAILS;
-	COORD firstPos = utils::gotoWriteCenter({ 0, ((ROWS / 2) - 2) }, header);
-	cout << header;
-	utils::gotoNextLine(firstPos, 1);
-	cout << details.name;
+	utils::gotoWriteCenter({ 0, lastPositionY }, header);
+    cout << header;
 
-	utils::gotoNextLine(firstPos, 2);
+    lastPositionY += 1;
+    utils::gotoWriteCenter({ 0, lastPositionY }, details.name);
+    cout << details.name;
+
+    lastPositionY += 1;
+    utils::gotoWriteCenter({ 0, lastPositionY }, details.location);
 	cout << details.location;
 
-	utils::gotoNextLine(firstPos, 3);
+    lastPositionY += 1;
+    utils::gotoWriteCenter({ 0, lastPositionY }, details.creationDate);
 	cout << details.creationDate;
 
-    utils::gotoNextLine(firstPos, 4);
+    lastPositionY += 1;
+    utils::gotoWriteCenter({ 0, lastPositionY }, details.description);
     cout << details.description;
+
+
+
 
 	utils::gotoWriteCenter({50,25}, i18n::pl::PRESS_ESC_TO_GO_BACK);
 	cout << i18n::pl::PRESS_ESC_TO_GO_BACK;
