@@ -1,27 +1,124 @@
 [
-  {
-    "id": 1,
-    "maxQuantity": 10,
-    "price": 20,
-    "name": "Pizza",
-    "ingredients": [
-      "Salami",
-      "Ser",
-      "Sos pomidorowy"
-    ],
-    "description": "Pizza pepperoni",
-    "preparationTime": 30
-  },
-  {
-    "id": 2,
-    "maxQuantity": 10,
-    "price": 10,
-    "name": "Pizza Margherita",
-    "ingredients": [
-      "Ser",
-      "Sos pomidorowy"
-    ],
-    "description": "\nBardzo pyszna pizza, ktora mozna zamowic o 23 \n piszac read/write system na zaliczenie projektu na studiach",
-    "preparationTime": 20
-  }
+    {
+        "id": 1,
+        "maxQuantity": 10,
+        "price": 20,
+        "name": "Gulasz z dyni",
+        "ingredients": [
+            "Dynia",
+            "Kozie maslo",
+            "Swieze mleko",
+            "Pszenica Tabanta"
+        ],
+        "description": "Rozgrzewajacy gulasz z dyni regeneruje 20hp",
+        "preparationTime": 30
+    },
+    {
+        "id": 2,
+        "maxQuantity": 10,
+        "price": 12,
+        "name": "Zupa krem z grzybow",
+        "ingredients": [
+            "Grzyby",
+            "Swieze mleko",
+            "Sol kamienna"
+        ],
+        "description": "Pyszny krem z grzybow zapewniajacy odpornosc na czary i klatwy wiedzm bagiennych",
+        "preparationTime": 20
+    },
+    {
+        "id": 3,
+        "maxQuantity": 16,
+        "price": 8,
+        "name": "Warzywne curry",
+        "ingredients": [
+            "Dynia",
+            "Marchew",
+            "Przyprawa Gorona",
+            "Ryz Hylian"
+        ],
+        "description": "Idealne dla wegetarian i jako przekupienie straznikow na biomie indyjskim",
+        "preparationTime": 15
+    },
+    {
+        "id": 4,
+        "maxQuantity": 30,
+        "price": 12,
+        "name": "Chowder z malzami",
+        "ingredients": [
+            "Malze",
+            "Kozie maslo",
+            "Swieze mleko",
+            "Pszenica Tabanta"
+        ],
+        "description": "Wyborne malze daja +15 do oddychania pod woda",
+        "preparationTime": 12
+    },
+    {
+        "id": 5,
+        "maxQuantity": 25,
+        "price": 32,
+        "name": "Pilaw drobiowy dla smakoszy",
+        "ingredients": [
+            "Kurczak",
+            "Kozie maslo",
+            "Jajka",
+            "Ryz Hylian"
+        ],
+        "description": "Swietna zrodlo bialka +35hp +15sp",
+        "preparationTime": 35
+    },
+    {
+        "id": 6,
+        "maxQuantity": 15,
+        "price": 34,
+        "name": "Pilaw wolowy dla smakoszy",
+        "ingredients": [
+            "Wolowina",
+            "Kozie maslo",
+            "Jajka",
+            "Ryz Hylian"
+        ],
+        "description": "Swietna zrodlo bialka +35hp +15sp",
+        "preparationTime": 30
+    },
+    {
+        "id": 7,
+        "maxQuantity": 1,
+        "price": 160,
+        "name": "Frytka",
+        "ingredients": [
+            "Ziemniak"
+        ],
+        "description": "Frytka. Nie solona. Jedna.",
+        "preparationTime": 60
+    },
+    {
+        "id": 8,
+        "maxQuantity": 45,
+        "price": 5,
+        "name": "Wrozkowy tonik",
+        "ingredients": [
+            "Wrozka",
+            "Krysztaly"
+
+        ],
+        "description": "Ozezwiajacy tonik z wrozki przywraca 30mp",
+        "preparationTime": 60
+    },
+    {
+        "id": 9,
+        "maxQuantity": 15,
+        "price": 20,
+        "name": "Potworne Ciasto",
+        "ingredients": [
+            "Ekstrakt z potwora",
+            "Cukier trzcinowy",
+            "Kozie maslo",
+            "Pszenica Tabanta"
+
+        ],
+        "description": "Potwornie pyszne ciasto regenrujace 30sp 50hp",
+        "preparationTime": 60
+    }
 ]
