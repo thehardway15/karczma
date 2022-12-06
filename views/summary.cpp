@@ -13,9 +13,8 @@ using namespace std;
 void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, std::vector<OrderItem>& items, bool& shouldStop, int& table, DeliveryStruct& deliveryData) {
 	SetConsoleTextAttribute(hConsole, WHITE_COLOR);
 	int price = 0;
-    bool fileCreated = false;
 
-    ofstream outfile("order.txt");
+    ofstream outfile("order-"+ customerName +".txt");
 
 	std::vector<OrderItem> orderItems;
 	for (const auto& item : items) {
@@ -55,23 +54,18 @@ void views::summary(HANDLE hConsole, int key, Page& page, string& customerName, 
 		utils::gotoxy(70, 7 + i);
 		std::cout << "|";
 
-		i++;
-	}
-
-
-    for (auto& item : orderItems) {
         outfile << "|";
         outfile << item.name;
         outfile << "|";
+
         outfile << item.price << i18n::pl::CURRENCY;
         outfile << "|";
+
         outfile << item.quantity << "x" << std::endl;
         outfile << std::endl;
 
-    }
-
-
-
+		i++;
+	}
 
 	short lastPostionY = 7 + orderItems.size();
 
